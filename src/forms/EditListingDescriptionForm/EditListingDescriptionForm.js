@@ -2,13 +2,19 @@ import React from 'react';
 import { arrayOf, bool, func, shape, string } from 'prop-types';
 import { compose } from 'redux';
 import { Form as FinalForm } from 'react-final-form';
+import arrayMutators from 'final-form-arrays';
 import { intlShape, injectIntl, FormattedMessage } from '../../util/reactIntl';
 import classNames from 'classnames';
 import { propTypes } from '../../util/types';
+import config from '../../config';
 import { maxLength, required, composeValidators } from '../../util/validators';
-import { Form, Button, FieldTextInput } from '../../components';
-import CustomCertificateSelectFieldMaybe from './CustomCertificateSelectFieldMaybe';
+import { Form, Button,FieldCheckboxGroup,FieldRadioButton,FieldTextInput } from '../../components';
 
+//import CustomCertificateSelectFieldMaybe from './CustomCertificateSelectFieldMaybe';
+//import CustomCategorySelectFiled from './CustomCategorySelectFiled';
+import CustomMinimumBookingSelectField from './CustomMinimumBookingSeletField';
+import CustomMaximumOccupancyNumberSelectField from './CustomMaximumOccupancyNumberSelectField';
+import CustomMinimumNoticeToBookSelectField from './CustomMinimumNoticeToBookSeletField';
 import css from './EditListingDescriptionForm.css';
 
 const TITLE_MAX_LENGTH = 60;
@@ -16,9 +22,13 @@ const TITLE_MAX_LENGTH = 60;
 const EditListingDescriptionFormComponent = props => (
   <FinalForm
     {...props}
+    mutators={{ ...arrayMutators }}
     render={formRenderProps => {
       const {
-        certificate,
+        minimumNoticeToBook,
+        maximumOccupancyNumber,
+        minimumBooking,
+        name,
         className,
         disabled,
         ready,
@@ -56,6 +66,21 @@ const EditListingDescriptionFormComponent = props => (
       const descriptionRequiredMessage = intl.formatMessage({
         id: 'EditListingDescriptionForm.descriptionRequired',
       });
+      const venueTypeLabelMessage = intl.formatMessage({
+        id :'EditListingDescriptionForm.venueTypeLabel',
+      });
+      const venueHoursMessage = intl.formatMessage({
+        id :'EditListingDescriptionForm.venueHoursLabel',
+      });
+      const alwaysAvailableLabel = intl.formatMessage({
+        id :'EditListingDescriptionForm.alwaysAvailableLabel',
+      });
+      const messageForAvailabilityLabel = intl.formatMessage({
+        id :'EditListingDescriptionForm.messageForAvailabilityLabel',
+      });
+      const specificHoursLabel = intl.formatMessage({
+        id :'EditListingDescriptionForm.specificHoursLabel',
+      });
 
       const { updateListingError, createListingDraftError, showListingsError } = fetchErrors || {};
       const errorMessageUpdateListing = updateListingError ? (
@@ -81,7 +106,7 @@ const EditListingDescriptionFormComponent = props => (
       const submitReady = (updated && pristine) || ready;
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
-
+      const showAsRequired = pristine;
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessageCreateListingDraft}
@@ -108,14 +133,72 @@ const EditListingDescriptionFormComponent = props => (
             placeholder={descriptionPlaceholderMessage}
             validate={composeValidators(required(descriptionRequiredMessage))}
           />
+          <FieldCheckboxGroup
+            className={css.VenueType}
+            id={name}
+            name={name}
+            label={venueTypeLabelMessage}
+            options={config.custom.VenueType}
+          />
+          <div className={css.selectsRow} >
+            <div className={css.selectsSplit}>
+              <CustomMinimumBookingSelectField
+                id="minimumBooking"
+                name="minimumBooking"
+                minimumBooking={minimumBooking}
+                intl={intl}
+              />
+            </div>
+            <div className={css.selectsSplit}>
+              <CustomMaximumOccupancyNumberSelectField
+                id="maximumOccupancyNumber"
+                name="maximumOccupancyNumber"
+                maximumOccupancyNumber={maximumOccupancyNumber}
+                intl={intl}
+              />
+            </div>
+          </div>
+          <div className={css.availabilityRadioGroup}>
+            <div>
+              {venueHoursMessage}
+              <div className={css.radioRow}>
+                <FieldRadioButton
+                  id= 'availability1'
+                  name="availability"
+                  label={alwaysAvailableLabel}
+                  value="alwaysAvailable"
+                  showAsRequired={showAsRequired}
+                />
+              </div>
+              <div className={css.radioRow}> 
+                <FieldRadioButton
+                  id= 'availability2'
+                  name="availability"
+                  label={messageForAvailabilityLabel}
+                  value="messageForAvailability"
+                  showAsRequired={showAsRequired}
+                />
+              </div>
+              <div className={css.radioRow}> 
+                <FieldRadioButton
+                  id= 'availability3'
+                  name="availability"
+                  label={specificHoursLabel}
+                  value="specificHours"
+                  showAsRequired={showAsRequired}
+                />
+              </div>
+            </div>
+          </div>
 
-          <CustomCertificateSelectFieldMaybe
-            id="certificate"
-            name="certificate"
-            certificate={certificate}
+
+          <CustomMinimumNoticeToBookSelectField
+            id="minimumNoticeToBook"
+            name="minimumNoticeToBook"
+            minimumNoticeToBook={minimumNoticeToBook}
             intl={intl}
           />
-
+          
           <Button
             className={css.submitButton}
             type="submit"
@@ -136,6 +219,7 @@ EditListingDescriptionFormComponent.defaultProps = { className: null, fetchError
 EditListingDescriptionFormComponent.propTypes = {
   className: string,
   intl: intlShape.isRequired,
+  name: string.isRequired,
   onSubmit: func.isRequired,
   saveActionMsg: string.isRequired,
   disabled: bool.isRequired,
@@ -147,12 +231,26 @@ EditListingDescriptionFormComponent.propTypes = {
     showListingsError: propTypes.error,
     updateListingError: propTypes.error,
   }),
-  certificate: arrayOf(
+  
+  minimumNoticeToBook: arrayOf(
     shape({
       key: string.isRequired,
       label: string.isRequired,
     })
   ),
+  maximumOccupancyNumber: arrayOf(
+    shape({
+      key: string.isRequired,
+      label: string.isRequired,
+    })
+  ),
+  minimumBooking: arrayOf(
+    shape({
+      key: string.isRequired,
+      label: string.isRequired,
+    })
+  ),
+  
 };
 
 export default compose(injectIntl)(EditListingDescriptionFormComponent);

@@ -33,6 +33,12 @@ export const EditListingPoliciesFormComponent = props => (
       const rulesPlaceholderMessage = intl.formatMessage({
         id: 'EditListingPoliciesForm.rulesPlaceholder',
       });
+      const cancellationPolicyLabelMessage = intl.formatMessage({
+        id: 'EditListingPoliciesForm.cancellationPolicyLabel',
+      });
+      const cancellationPolicyPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingPoliciesForm.cancellationPolicyPlaceholder',
+      });
 
       const { updateListingError, showListingsError } = fetchErrors || {};
       const errorMessage = updateListingError ? (
@@ -63,6 +69,14 @@ export const EditListingPoliciesFormComponent = props => (
             type="textarea"
             label={rulesLabelMessage}
             placeholder={rulesPlaceholderMessage}
+          />
+          <FieldTextInput
+            id="cancellationPolicy"
+            name="cancellationPolicy"
+            className={css.policy}
+            type="textarea"
+            label={cancellationPolicyLabelMessage}
+            placeholder={cancellationPolicyPlaceholderMessage}
           />
 
           <Button

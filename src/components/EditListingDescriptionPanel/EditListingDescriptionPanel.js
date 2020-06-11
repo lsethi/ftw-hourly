@@ -9,7 +9,7 @@ import { EditListingDescriptionForm } from '../../forms';
 import config from '../../config';
 
 import css from './EditListingDescriptionPanel.css';
-
+const DESCRIPTION_NAME = 'venueType';
 const EditListingDescriptionPanel = props => {
   const {
     className,
@@ -50,14 +50,21 @@ const EditListingDescriptionPanel = props => {
       <h1 className={css.title}>{panelTitle}</h1>
       <EditListingDescriptionForm
         className={css.form}
-        initialValues={{ title, description, certificate: publicData.certificate }}
+        name={DESCRIPTION_NAME}
+        initialValues={{ title, description ,
+          venueType:publicData.venueType,minimumBooking:publicData.minimumBooking,
+          maximumOccupancyNumber:publicData.maximumOccupancyNumber,
+          minimumNoticeToBook:publicData.minimumNoticeToBook
+         }}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
-          const { title, description, certificate } = values;
+          const { title, description,venueType,minimumBooking,
+            maximumOccupancyNumber,minimumNoticeToBook } = values;
           const updateValues = {
             title: title.trim(),
             description,
-            publicData: { certificate },
+            publicData: {venueType,minimumBooking,maximumOccupancyNumber,
+              minimumNoticeToBook },
           };
 
           onSubmit(updateValues);
@@ -68,7 +75,10 @@ const EditListingDescriptionPanel = props => {
         updated={panelUpdated}
         updateInProgress={updateInProgress}
         fetchErrors={errors}
-        certificate={config.custom.certificate}
+        venueType={config.custom.venueType}
+        minimumBooking={config.custom.minimumBooking}
+        maximumOccupancyNumber = {config.custom.maximumOccupancyNumber}
+        minimumNoticeToBook = {config.custom.minimumNoticeToBook}
       />
     </div>
   );

@@ -41,7 +41,7 @@ const availabilityMaybe = config.enableAvailability ? [AVAILABILITY] : [];
 export const TABS = [
   DESCRIPTION,
   FEATURES,
-  //POLICY,
+  POLICY,
   LOCATION,
   PRICING,
   ...availabilityMaybe,
@@ -98,7 +98,7 @@ const tabCompleted = (tab, listing) => {
     case DESCRIPTION:
       return !!(description && title);
     case FEATURES:
-      return !!(publicData && publicData.yogaStyles);
+      return !!(publicData && publicData.amenities);
     case POLICY:
       return !!(publicData && typeof publicData.rules !== 'undefined');
     case LOCATION:

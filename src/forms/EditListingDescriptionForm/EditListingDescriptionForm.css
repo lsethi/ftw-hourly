@@ -49,10 +49,73 @@
   flex-shrink: 0;
 }
 
+.pastClients {
+  @apply --EditListingDescriptionForm_formMargins;
+  flex-shrink: 0;
+}
+
 .certificate {
   @apply --EditListingDescriptionForm_formMargins;
 }
 
+
+.minimumNoticeToBook {
+  @apply --EditListingDescriptionForm_formMargins;
+}
+.VenueType{
+  @apply --EditListingDescriptionForm_formMargins;
+}
+.minimumBooking
+.maximumOccupancyNumber
+.minimumNoticeToBook
+.selectsRow {
+  @apply --EditListingDescriptionForm_formMargins;
+}
+
+.radioRow,
+.selectsRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.radioRowLeft {
+  width: 40px;
+}
+.radioRowRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+}
+.availabilityRadioGroup {
+  padding-bottom: 20px;
+}
+.hourField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 120px;
+  padding: 0 8px;
+}
+.selectsSplit {
+  width: calc(50% - 10px);
+  padding-right: 16px;
+  @apply --EditListingDescriptionForm_formMargins;
+}
 .submitButton {
   margin-top: auto;
   margin-bottom: 24px;

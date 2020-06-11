@@ -27,7 +27,8 @@ const EditListingPoliciesPanel = props => {
   const classes = classNames(rootClassName || css.root, className);
   const currentListing = ensureOwnListing(listing);
   const { publicData } = currentListing.attributes;
-
+  const rules = publicData && publicData.rules;
+  const cancellationPolicy = publicData && publicData.cancellationPolicy;
   const isPublished = currentListing.id && currentListing.attributes.state !== LISTING_STATE_DRAFT;
   const panelTitle = isPublished ? (
     <FormattedMessage
@@ -44,12 +45,12 @@ const EditListingPoliciesPanel = props => {
       <EditListingPoliciesForm
         className={css.form}
         publicData={publicData}
-        initialValues={{ rules: publicData.rules }}
+        initialValues={{ rules: rules,cancellationPolicy:cancellationPolicy }}
         onSubmit={values => {
-          const { rules = '' } = values;
+          const { rules,cancellationPolicy } = values;
           const updateValues = {
             publicData: {
-              rules,
+              rules,cancellationPolicy
             },
           };
           onSubmit(updateValues);

@@ -1,13 +1,13 @@
 import React from 'react';
 import { bool, func, shape, string } from 'prop-types';
 import classNames from 'classnames';
+import { compose } from 'redux';
 import { Form as FinalForm } from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
-import { FormattedMessage } from '../../util/reactIntl';
+import { intlShape, injectIntl,  FormattedMessage } from '../../util/reactIntl';
 
 import { propTypes } from '../../util/types';
-import config from '../../config';
-import { Button, FieldCheckboxGroup, Form } from '../../components';
+import { Button,FieldTextInput, Form } from '../../components';
 
 import css from './EditListingFeaturesForm.css';
 
@@ -23,6 +23,7 @@ const EditListingFeaturesFormComponent = props => (
         className,
         name,
         handleSubmit,
+        intl,
         pristine,
         saveActionMsg,
         updated,
@@ -47,18 +48,47 @@ const EditListingFeaturesFormComponent = props => (
           <FormattedMessage id="EditListingFeaturesForm.showListingFailed" />
         </p>
       ) : null;
-
+      
+      const amenitiesPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingFeaturesForm.amenitiesPlaceholder',
+      });
+      const amenitiesMessage = intl.formatMessage({
+        id: 'EditListingFeaturesForm.amenities',
+      });
+      const mainEquipmentPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingFeaturesForm.mainEquipmentPlaceholder',
+      });
+      const mainEquipmentMessage = intl.formatMessage({
+        id: 'EditListingFeaturesForm.mainEquipment',
+      });
+      
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessage}
           {errorMessageShowListing}
-
-          <FieldCheckboxGroup
+          <FieldTextInput
+            id={name}
+            name={name}
+            className={css.features}
+            type="textarea"
+            label={amenitiesMessage}
+            placeholder={amenitiesPlaceholderMessage}
+          />
+          <FieldTextInput
+            id="mainEquipment"
+            name="mainEquipment"
+            className={css.features}
+            type="textarea"
+            label={mainEquipmentMessage}
+            placeholder={mainEquipmentPlaceholderMessage}
+          />
+          
+          {/* <FieldCheckboxGroup
             className={css.features}
             id={name}
             name={name}
-            options={config.custom.yogaStyles}
-          />
+            options={config.custom.categories}
+          /> */}
 
           <Button
             className={css.submitButton}
@@ -84,6 +114,7 @@ EditListingFeaturesFormComponent.defaultProps = {
 EditListingFeaturesFormComponent.propTypes = {
   rootClassName: string,
   className: string,
+  intl: intlShape.isRequired,
   name: string.isRequired,
   onSubmit: func.isRequired,
   saveActionMsg: string.isRequired,
@@ -97,6 +128,8 @@ EditListingFeaturesFormComponent.propTypes = {
   }),
 };
 
-const EditListingFeaturesForm = EditListingFeaturesFormComponent;
+//const EditListingFeaturesForm = EditListingFeaturesFormComponent;
 
-export default EditListingFeaturesForm;
+//export default EditListingFeaturesForm;
+
+export default compose(injectIntl)(EditListingFeaturesFormComponent);
