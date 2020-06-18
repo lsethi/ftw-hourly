@@ -22,7 +22,29 @@
   flex-shrink: 0;
   width: 100%;
 }
+.priceInput,
+.discount {
+  flex-shrink: 0;
+  margin-bottom: 24px;
 
+  @media (--viewportMedium) {
+    margin-bottom: 32px;
+  }
+}
+.servicesSubhead {
+  color: #999;
+  font-size: 22px;
+  font-weight: 500;
+  padding-top: 20px;
+}
+.pricingCheckBox{
+  width: 30px;
+  display: inline-block;
+}
+.discountInput{
+  width: 60px;
+  display: inline-block;
+}
 .submitButton {
   margin-top: auto;
   margin-bottom: 24px;

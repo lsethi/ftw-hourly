@@ -3,8 +3,9 @@ import { bool, func, object, string } from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from '../../util/reactIntl';
 import { ensureOwnListing } from '../../util/data';
-import { ListingLink } from '../../components';
+//import { findOptionsForSelectFilter } from '../../util/search';
 import { LISTING_STATE_DRAFT } from '../../util/types';
+import { ListingLink } from '../../components';
 import { EditListingDescriptionForm } from '../../forms';
 import config from '../../config';
 
@@ -45,6 +46,7 @@ const EditListingDescriptionPanel = props => {
     <FormattedMessage id="EditListingDescriptionPanel.createListingTitle" />
   );
 
+  //const certificateOptions = findOptionsForSelectFilter('certificate', config.custom.filters);
   return (
     <div className={classes}>
       <h1 className={css.title}>{panelTitle}</h1>
@@ -54,17 +56,18 @@ const EditListingDescriptionPanel = props => {
         initialValues={{ title, description ,
           venueType:publicData.venueType,minimumBooking:publicData.minimumBooking,
           maximumOccupancyNumber:publicData.maximumOccupancyNumber,
-          minimumNoticeToBook:publicData.minimumNoticeToBook
+          minimumNoticeToBook:publicData.minimumNoticeToBook,
+          hourStart:publicData.hourStart 
          }}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
           const { title, description,venueType,minimumBooking,
-            maximumOccupancyNumber,minimumNoticeToBook } = values;
+            maximumOccupancyNumber,minimumNoticeToBook,hourStart } = values;
           const updateValues = {
             title: title.trim(),
             description,
             publicData: {venueType,minimumBooking,maximumOccupancyNumber,
-              minimumNoticeToBook },
+              minimumNoticeToBook,hourStart },
           };
 
           onSubmit(updateValues);
@@ -79,6 +82,7 @@ const EditListingDescriptionPanel = props => {
         minimumBooking={config.custom.minimumBooking}
         maximumOccupancyNumber = {config.custom.maximumOccupancyNumber}
         minimumNoticeToBook = {config.custom.minimumNoticeToBook}
+        hourStart ={config.custom.hourStart}
       />
     </div>
   );

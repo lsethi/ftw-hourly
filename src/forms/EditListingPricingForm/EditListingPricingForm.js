@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, func, shape, string } from 'prop-types';
+import { bool, func, array, string,object } from 'prop-types';
 import { compose } from 'redux';
 import { Form as FinalForm } from 'react-final-form';
 import { intlShape, injectIntl, FormattedMessage } from '../../util/reactIntl';
@@ -9,9 +9,9 @@ import { LINE_ITEM_NIGHT, LINE_ITEM_DAY, propTypes } from '../../util/types';
 import * as validators from '../../util/validators';
 import { formatMoney } from '../../util/currency';
 import { types as sdkTypes } from '../../util/sdkLoader';
-import { Button, Form, FieldCurrencyInput } from '../../components';
+import { Button, Form, FieldCurrencyInput,FieldCheckbox,FieldTextInput } from '../../components';
 import css from './EditListingPricingForm.css';
-
+import DiscountsSection from './DiscountsSection';
 const { Money } = sdkTypes;
 
 export const EditListingPricingFormComponent = props => (
@@ -99,7 +99,7 @@ export const EditListingPricingFormComponent = props => (
             currencyConfig={config.currencyConfig}
             validate={priceValidators}
           />
-
+          <DiscountsSection/>
           <Button
             className={css.submitButton}
             type="submit"
@@ -115,20 +115,21 @@ export const EditListingPricingFormComponent = props => (
   />
 );
 
-EditListingPricingFormComponent.defaultProps = { fetchErrors: null };
-
+//EditListingPricingFormComponent.defaultProps = { fetchErrors: null };
+EditListingPricingFormComponent.defaultProps = {
+  updateError: null,
+  additionsConfig: config.custom.additions,
+  currencyConfig: config.currencyConfig,
+};
 EditListingPricingFormComponent.propTypes = {
   intl: intlShape.isRequired,
   onSubmit: func.isRequired,
   saveActionMsg: string.isRequired,
-  disabled: bool.isRequired,
-  ready: bool.isRequired,
   updated: bool.isRequired,
+  updateError: propTypes.error,
   updateInProgress: bool.isRequired,
-  fetchErrors: shape({
-    showListingsError: propTypes.error,
-    updateListingError: propTypes.error,
-  }),
+  currencyConfig: object,
+  additionsConfig: array,
 };
 
 export default compose(injectIntl)(EditListingPricingFormComponent);

@@ -2,12 +2,14 @@ import React from 'react';
 import { bool, func, shape, string } from 'prop-types';
 import classNames from 'classnames';
 import { compose } from 'redux';
+import config from '../../config';
 import { Form as FinalForm } from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
 import { intlShape, injectIntl,  FormattedMessage } from '../../util/reactIntl';
-
+//import { findOptionsForSelectFilter } from '../../util/search';
+//import config from '../../config';
 import { propTypes } from '../../util/types';
-import { Button,FieldTextInput, Form } from '../../components';
+import { Button,FieldTextInput,FieldCheckboxGroup, Form } from '../../components';
 
 import css from './EditListingFeaturesForm.css';
 
@@ -17,6 +19,7 @@ const EditListingFeaturesFormComponent = props => (
     mutators={{ ...arrayMutators }}
     render={formRenderProps => {
       const {
+        amenities,
         disabled,
         ready,
         rootClassName,
@@ -49,47 +52,43 @@ const EditListingFeaturesFormComponent = props => (
         </p>
       ) : null;
       
-      const amenitiesPlaceholderMessage = intl.formatMessage({
-        id: 'EditListingFeaturesForm.amenitiesPlaceholder',
-      });
       const amenitiesMessage = intl.formatMessage({
         id: 'EditListingFeaturesForm.amenities',
       });
-      const mainEquipmentPlaceholderMessage = intl.formatMessage({
-        id: 'EditListingFeaturesForm.mainEquipmentPlaceholder',
+      const suppliesPlaceholderMessage = intl.formatMessage({
+        id: 'EditListingFeaturesForm.suppliesPlaceholder',
       });
-      const mainEquipmentMessage = intl.formatMessage({
-        id: 'EditListingFeaturesForm.mainEquipment',
+      const suppliesMessage = intl.formatMessage({
+        id: 'EditListingFeaturesForm.supplies',
       });
       
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessage}
           {errorMessageShowListing}
-          <FieldTextInput
+          <label>{amenitiesMessage}</label>
+          <FieldCheckboxGroup
+            className={css.features}
+            id={name}
+            name={name}
+            options={config.custom.amenities}
+          />
+          {/* <FieldTextInput
             id={name}
             name={name}
             className={css.features}
             type="textarea"
             label={amenitiesMessage}
             placeholder={amenitiesPlaceholderMessage}
-          />
+          /> */}
           <FieldTextInput
-            id="mainEquipment"
-            name="mainEquipment"
+            id="supplies"
+            name="supplies"
             className={css.features}
             type="textarea"
-            label={mainEquipmentMessage}
-            placeholder={mainEquipmentPlaceholderMessage}
+            label={suppliesMessage}
+            placeholder={suppliesPlaceholderMessage}
           />
-          
-          {/* <FieldCheckboxGroup
-            className={css.features}
-            id={name}
-            name={name}
-            options={config.custom.categories}
-          /> */}
-
           <Button
             className={css.submitButton}
             type="submit"
@@ -109,6 +108,7 @@ EditListingFeaturesFormComponent.defaultProps = {
   rootClassName: null,
   className: null,
   fetchErrors: null,
+ 
 };
 
 EditListingFeaturesFormComponent.propTypes = {
@@ -126,6 +126,7 @@ EditListingFeaturesFormComponent.propTypes = {
     showListingsError: propTypes.error,
     updateListingError: propTypes.error,
   }),
+  
 };
 
 //const EditListingFeaturesForm = EditListingFeaturesFormComponent;

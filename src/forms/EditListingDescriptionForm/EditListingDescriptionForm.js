@@ -11,7 +11,7 @@ import { maxLength, required, composeValidators } from '../../util/validators';
 import { Form, Button,FieldCheckboxGroup,FieldRadioButton,FieldTextInput } from '../../components';
 
 //import CustomCertificateSelectFieldMaybe from './CustomCertificateSelectFieldMaybe';
-//import CustomCategorySelectFiled from './CustomCategorySelectFiled';
+import CustomSpecificHourHourStartSelectField from './CustomSpecificHourHourStartSelectField';
 import CustomMinimumBookingSelectField from './CustomMinimumBookingSeletField';
 import CustomMaximumOccupancyNumberSelectField from './CustomMaximumOccupancyNumberSelectField';
 import CustomMinimumNoticeToBookSelectField from './CustomMinimumNoticeToBookSeletField';
@@ -26,6 +26,7 @@ const EditListingDescriptionFormComponent = props => (
     render={formRenderProps => {
       const {
         minimumNoticeToBook,
+        hourStart,
         maximumOccupancyNumber,
         minimumBooking,
         name,
@@ -158,7 +159,7 @@ const EditListingDescriptionFormComponent = props => (
               />
             </div>
           </div>
-          <div className={css.availabilityRadioGroup}>
+          {/* <div className={css.availabilityRadioGroup}>
             <div>
               {venueHoursMessage}
               <div className={css.radioRow}>
@@ -187,9 +188,20 @@ const EditListingDescriptionFormComponent = props => (
                   value="specificHours"
                   showAsRequired={showAsRequired}
                 />
+                <CustomSpecificHourHourStartSelectField
+                  id="specificHours_hourStart"
+                  name="specificHours_hourStart"
+                  hourStart={hourStart}
+                /> 
+                to
+                <CustomSpecificHourHourStartSelectField
+                  id="specificHours_hourStart"
+                  name="specificHours_hourStart"
+                  hourStart={hourStart}
+                /> 
               </div>
             </div>
-          </div>
+          </div> */}
 
 
           <CustomMinimumNoticeToBookSelectField
@@ -231,7 +243,12 @@ EditListingDescriptionFormComponent.propTypes = {
     showListingsError: propTypes.error,
     updateListingError: propTypes.error,
   }),
-  
+  hourStart: arrayOf(
+    shape({
+      key: string.isRequired,
+      label: string.isRequired,
+    })
+  ),
   minimumNoticeToBook: arrayOf(
     shape({
       key: string.isRequired,
