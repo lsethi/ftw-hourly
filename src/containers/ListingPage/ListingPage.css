@@ -435,7 +435,18 @@
     margin-bottom: 20px;
   }
 }
+.otherSuppliesTitle {
+  /* Font */
+  @apply --marketplaceH3FontStyles;
+  color: var(--matterColorAnti);
 
+  margin-top: 16px;;
+  margin-bottom: 16px;
+  @media (--viewportMedium) {
+    margin-top: 20;
+    margin-bottom: 20px;
+  }
+}
 .description {
   margin-top: 0;
   margin-bottom: 0;
@@ -471,7 +482,16 @@
     margin-bottom: 28px;
   }
 }
-
+.addressTitle{
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 14px;
+  }
+}
 .sectionReviews {
   padding: 0 24px;
   margin-bottom: 5px;

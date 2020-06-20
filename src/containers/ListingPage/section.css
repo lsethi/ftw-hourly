@@ -1,0 +1,188 @@
+.root {
+    padding: 0 24px;
+    margin-bottom: 35px;
+  }
+  @media (min-width: 768px) {
+    .root {
+      padding: 0;
+      margin-bottom: 52px;
+    }
+  }
+  .title {
+    /* Font */
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+      /* margin-top + n * line-height + margin-bottom => x * 6px */
+    margin-top: 16px;
+    margin-bottom: 14px;
+  }
+  @media (min-width: 768px) {
+    .title {/* margin-top + n * line-height + margin-bottom => x * 8px */
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  .title {
+    color: #b2b2b2;
+    margin-top: 0;
+    margin-bottom: 13px;
+  }
+  @media (min-width: 768px) {
+    .title {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+  }
+  .content {
+    margin-top: 0;
+    margin-bottom: 0;
+  
+    /* Preserve newlines, but collapse other whitespace */
+    white-space: pre-line;
+  }
+  @media (min-width: 768px) {
+    .content {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  .contact {
+    font-size: 16px;
+    text-align: left;
+  }
+  .rootIncludedService {
+    padding: 0;
+    margin-bottom: 0;
+  }
+  @media (min-width: 768px) {
+    .rootIncludedService {
+      padding: 0;
+      margin-top: 2px;
+      margin-bottom: 0;
+    }
+  }
+  .includedService {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+      /* margin-top + n * line-height + margin-bottom => x * 6px */
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  @media (min-width: 768px) {
+    .includedService {
+      font-weight: 500;/* margin-top + n * line-height + margin-bottom => x * 8px */
+      margin-top: 17px;
+      margin-bottom: 15px;
+    }
+  }
+  .rootStudioTypes {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+  }
+  .soundCloudLink {
+    word-break: break-word;
+  }
+  .cancellationPolicy {
+    font-family: 'sofiapro', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.1px;
+      /* margin-top + n * line-height + margin-bottom => x * 6px */
+    margin-top: 9.5px;
+    margin-bottom: 8.5px;
+  }
+  @media (min-width: 768px) {
+    .cancellationPolicy {
+      line-height: 16px;/* margin-top + n * line-height + margin-bottom => x * 8px */
+      margin-top: 10.5px;
+      margin-bottom: 13.5px;
+    }
+  }
+  .cancellationPolicy {
+    color: #b2b2b2;
+    text-align: center;
+    margin: auto 24px 20px 24px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+  @media (min-width: 768px) {
+    .cancellationPolicy {
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .cancellationPolicy {
+      margin-top: 4px;
+      margin-bottom: 22px;
+    }
+  }
+  .cancellationPolicyLink {
+    text-decoration: underline
+  }
+  .cancellationPolicyLink:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .checkboxPrice {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  .checkboxWrapper {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  .addSrvlineItem {
+    font-size: 16px;
+    font-weight: 500;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .checkboxPrice {
+    font-size: 16px;
+    text-align: right;
+  }
+  .detailsRow {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .detailsleftColumn,
+  .detailsRightColumn {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 50%;
+    text-align: left;
+    font-size: 16px;
+    word-break: break-word;
+  }
+  .detailsleftColumn {
+    max-width: 220px;
+    font-weight: bold;
+  }
+  .messagStudio {
+    color: #b2b2b2;
+  }
+  .selectsSplit {
+    width: 45%;
+  }
+  
+  

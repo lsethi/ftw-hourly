@@ -25,6 +25,7 @@ import {
   ensureUser,
   userDisplayNameAsString,
 } from '../../util/data';
+import SectionDetailsMaybe from './SectionDetailsMaybe';
 import { timestampToDate, calculateQuantityFromHours } from '../../util/dates';
 import { richText } from '../../util/richText';
 import { getMarketplaceEntities } from '../../ducks/marketplaceData.duck';
@@ -53,6 +54,8 @@ import SectionDescriptionMaybe from './SectionDescriptionMaybe';
 import SectionFeaturesMaybe from './SectionFeaturesMaybe';
 import SectionReviews from './SectionReviews';
 import SectionMapMaybe from './SectionMapMaybe';
+import SectionRulesMaybe from './SectionRulesMaybe';
+import SectionHost from './SectionHostMaybe';
 import css from './ListingPage.css';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
@@ -372,9 +375,9 @@ export class ListingPageComponent extends Component {
       </NamedLink>
     );
 
-    const yogaStylesOptions = findOptionsForSelectFilter('yogaStyles', filterConfig);
+    const aminitesOptions = findOptionsForSelectFilter('aminites', filterConfig);
     const certificateOptions = findOptionsForSelectFilter('certificate', filterConfig);
-
+    const venueTypeOptions = findOptionsForSelectFilter('venueType', filterConfig);  
     return (
       <Page
         title={schemaTitle}
@@ -420,18 +423,42 @@ export class ListingPageComponent extends Component {
                     richTitle={richTitle}
                     listingCertificate={publicData ? publicData.certificate : null}
                     certificateOptions={certificateOptions}
+                    venueTypeOptions={venueTypeOptions}
                     hostLink={hostLink}
+                    publicData={publicData}
                     showContactUser={showContactUser}
                     onContactUser={this.onContactUser}
                   />
                   <SectionDescriptionMaybe description={description} />
-                  <SectionFeaturesMaybe options={yogaStylesOptions} publicData={publicData} />
+                  <SectionDetailsMaybe
+                    publicData={publicData}
+                    onOpenCancellationPolicy={() => this.setState({ cancellationPolicyOpen: true })}
+                  />
+                  <SectionFeaturesMaybe options={aminitesOptions} publicData={publicData} />
+                  <SectionRulesMaybe publicData={publicData} />
+                  <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} />
+                  <SectionHost
+                    title={title}
+                    listing={currentListing}
+                    authorDisplayName={authorDisplayName}
+                    onContactUser={this.onContactUser}
+                    isEnquiryModalOpen={isAuthenticated && this.state.enquiryModalOpen}
+                    onCloseEnquiryModal={() => this.setState({ enquiryModalOpen: false })}
+                    sendEnquiryError={sendEnquiryError}
+                    sendEnquiryInProgress={sendEnquiryInProgress}
+                    onSubmitEnquiry={this.onSubmitEnquiry}
+                    currentUser={currentUser}
+                    onManageDisableScrolling={onManageDisableScrolling}
+                    publicData={publicData}
+                    views={this.state.viewCount}
+                   
+                  />
                   <SectionMapMaybe
                     geolocation={geolocation}
                     publicData={publicData}
                     listingId={currentListing.id}
                   />
-                  <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} />
+                  
                 </div>
                 <BookingPanel
                   className={css.bookingPanel}

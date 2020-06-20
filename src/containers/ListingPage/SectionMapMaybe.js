@@ -23,6 +23,7 @@ class SectionMapMaybe extends Component {
     }
 
     const address = publicData && publicData.location ? publicData.location.address : '';
+    const building = publicData && publicData.location ? publicData.location.building : '';
     const classes = classNames(rootClassName || css.sectionMap, className);
     const cacheKey = listingId ? `${listingId.uuid}_${geolocation.lat}_${geolocation.lng}` : null;
 
@@ -36,6 +37,14 @@ class SectionMapMaybe extends Component {
         <h2 className={css.locationTitle}>
           <FormattedMessage id="ListingPage.locationTitle" />
         </h2>
+        <div className={css.addressTitle}>
+          <FormattedMessage id="ListingPage.addressTitle" />
+          {address}
+        </div>
+        <div className={css.addressTitle}>
+          <FormattedMessage id="ListingPage.landmarkTitle" />
+          {building}
+        </div>
         {this.state.isStatic ? (
           <button
             className={css.map}

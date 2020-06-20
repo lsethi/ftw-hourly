@@ -14,7 +14,7 @@ import {
 import { Form, LocationAutocompleteInputField, Button, FieldTextInput } from '../../components';
 
 import css from './EditListingLocationForm.css';
-
+import GoogleLocationSelector from './GoogleLocactionSelector'
 const identity = v => v;
 
 export const EditListingLocationFormComponent = props => (
@@ -110,7 +110,7 @@ export const EditListingLocationFormComponent = props => (
             placeholder={buildingPlaceholderMessage}
             validate={required(buildingRequiredMessage)}
           />
-
+          
           <Button
             className={css.submitButton}
             type="submit"

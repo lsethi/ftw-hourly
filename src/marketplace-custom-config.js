@@ -273,6 +273,51 @@ export const filters = [
     },
   },
   {
+    id: 'aminites',
+    label: 'Aminites',
+    type: 'SelectMultipleFilter',
+    group: 'secondary',
+    queryParamNames: ['pub_aminites'],
+    config: {
+      // Optional modes: 'has_all', 'has_any'
+      // https://www.sharetribe.com/api-reference/marketplace.html#extended-data-filtering
+      searchMode: 'has_all',
+
+      // "key" is the option you see in Flex Console.
+      // "label" is set here for this web app's UI only.
+      // Note: label is not added through the translation files
+      // to make filter customizations a bit easier.
+      options: [
+        {key:'food',label:'Food'},
+        {key:'drinks',label:'Drinks'},
+        {key:'finger_foods',label:'Finger Food'},
+        {key:'swiming_pool',label:'Swimming Pool'}
+      ],
+    },
+  },
+  {
+    id: 'venueType',
+    label: 'Venue Types',
+    type: 'SelectSingleFilter',
+    group: 'secondary',
+    queryParamNames: ['pub_venueType'],
+    config: {
+      // "key" is the option you see in Flex Console.
+      // "label" is set here for the UI only.
+      // Note: label is not added through the translation files
+      // to make filter customizations a bit easier.
+      options: [
+        {key:'food_and_drinks',label:'Food & Drink'},
+        {key:'kids_party',label:'Kids Party & Social Events'},
+        {key:'food',label:'Lunch Dinner Party'},
+        {key:'meetings',label:'Meeting & Conference'},
+        {key:'storage',label:'Storage Unit Fot Rental'},
+        {key:'wedding',label:'Wedding'},
+        {key:'cinema',label:'Cinema'},
+      ],
+    },
+  },
+  {
     id: 'certificate',
     label: 'Certificate',
     type: 'SelectSingleFilter',
