@@ -190,7 +190,7 @@ class TopbarComponent extends Component {
     };
 
     const classes = classNames(rootClassName || css.root, className);
-
+    
     return (
       <div className={classes}>
         <LimitedAccessBanner

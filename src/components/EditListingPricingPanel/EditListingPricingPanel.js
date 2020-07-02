@@ -113,9 +113,6 @@ import css from './EditListingPricingPanel.css';
 
 // export default EditListingPricingPanel;
 
-
-
-
 const { Money } = sdkTypes;
 
 const EditListingPricingPanel = props => {
@@ -154,7 +151,6 @@ const EditListingPricingPanel = props => {
     price,
   };
 
-  
   if (publicData.dayRateDiscount) {
     intitalFormValues.discountPercentInputCheckbox = ['discountPercentChosen'];
     intitalFormValues.discountPercentInput = publicData.dayRateDiscount.discountPerecent;
@@ -175,7 +171,7 @@ const EditListingPricingPanel = props => {
         const dayRateDiscountChecked = Boolean(
           values.discountPercentInputCheckbox && values.discountPercentInputCheckbox.length
         );
-        
+
         if (dayRateDiscountChecked) {
           const discountNumber = Number(values.discountPercentInput);
 

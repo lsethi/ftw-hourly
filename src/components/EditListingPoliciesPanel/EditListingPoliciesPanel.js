@@ -45,12 +45,13 @@ const EditListingPoliciesPanel = props => {
       <EditListingPoliciesForm
         className={css.form}
         publicData={publicData}
-        initialValues={{ rules: rules,cancellationPolicy:cancellationPolicy }}
+        initialValues={{ rules: rules, cancellationPolicy: cancellationPolicy }}
         onSubmit={values => {
-          const { rules,cancellationPolicy } = values;
+          const { rules, cancellationPolicy } = values;
           const updateValues = {
             publicData: {
-              rules,cancellationPolicy
+              rules,
+              cancellationPolicy,
             },
           };
           onSubmit(updateValues);

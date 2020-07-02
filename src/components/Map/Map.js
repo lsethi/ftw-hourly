@@ -34,7 +34,7 @@ export class Map extends Component {
     }
 
     const location = mapsConfig.fuzzy.enabled ? obfuscatedCenter : center;
-
+    
     return !isMapsLibLoaded() ? (
       <div className={classes} />
     ) : useStaticMap ? (

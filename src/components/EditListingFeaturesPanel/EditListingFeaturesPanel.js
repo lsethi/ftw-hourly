@@ -49,7 +49,7 @@ const EditListingFeaturesPanel = props => {
 
   const amenities = publicData && publicData.amenities;
   const supplies = publicData && publicData.supplies;
-  const initialValues = { amenities,supplies };
+  const initialValues = { amenities, supplies };
 
   return (
     <div className={classes}>
@@ -59,10 +59,10 @@ const EditListingFeaturesPanel = props => {
         name={FEATURES_NAME}
         initialValues={initialValues}
         onSubmit={values => {
-          const { amenities,supplies } = values;
+          const { amenities, supplies } = values;
 
           const updatedValues = {
-            publicData: { amenities,supplies },
+            publicData: { amenities, supplies },
           };
           onSubmit(updatedValues);
         }}

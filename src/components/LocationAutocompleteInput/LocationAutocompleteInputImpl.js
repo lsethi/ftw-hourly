@@ -478,7 +478,7 @@ class LocationAutocompleteInputImpl extends Component {
     // might want to hardcode this to `true`. Otherwise the dropdown
     // list will disappear.
     const renderPredictions = this.state.inputHasFocus;
-
+    
     return (
       <div className={rootClass}>
         <div className={iconClass}>

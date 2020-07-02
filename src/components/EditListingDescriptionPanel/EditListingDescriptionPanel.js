@@ -53,21 +53,36 @@ const EditListingDescriptionPanel = props => {
       <EditListingDescriptionForm
         className={css.form}
         name={DESCRIPTION_NAME}
-        initialValues={{ title, description ,
-          venueType:publicData.venueType,minimumBooking:publicData.minimumBooking,
-          maximumOccupancyNumber:publicData.maximumOccupancyNumber,
-          minimumNoticeToBook:publicData.minimumNoticeToBook,
-          hourStart:publicData.hourStart 
-         }}
+        initialValues={{
+          title,
+          description,
+          venueType: publicData.venueType,
+          minimumBooking: publicData.minimumBooking,
+          maximumOccupancyNumber: publicData.maximumOccupancyNumber,
+          minimumNoticeToBook: publicData.minimumNoticeToBook,
+          hourStart: publicData.hourStart,
+        }}
         saveActionMsg={submitButtonText}
         onSubmit={values => {
-          const { title, description,venueType,minimumBooking,
-            maximumOccupancyNumber,minimumNoticeToBook,hourStart } = values;
+          const {
+            title,
+            description,
+            venueType,
+            minimumBooking,
+            maximumOccupancyNumber,
+            minimumNoticeToBook,
+            hourStart,
+          } = values;
           const updateValues = {
             title: title.trim(),
             description,
-            publicData: {venueType,minimumBooking,maximumOccupancyNumber,
-              minimumNoticeToBook,hourStart },
+            publicData: {
+              venueType,
+              minimumBooking,
+              maximumOccupancyNumber,
+              minimumNoticeToBook,
+              hourStart,
+            },
           };
 
           onSubmit(updateValues);
@@ -80,9 +95,9 @@ const EditListingDescriptionPanel = props => {
         fetchErrors={errors}
         venueType={config.custom.venueType}
         minimumBooking={config.custom.minimumBooking}
-        maximumOccupancyNumber = {config.custom.maximumOccupancyNumber}
-        minimumNoticeToBook = {config.custom.minimumNoticeToBook}
-        hourStart ={config.custom.hourStart}
+        maximumOccupancyNumber={config.custom.maximumOccupancyNumber}
+        minimumNoticeToBook={config.custom.minimumNoticeToBook}
+        hourStart={config.custom.hourStart}
       />
     </div>
   );
