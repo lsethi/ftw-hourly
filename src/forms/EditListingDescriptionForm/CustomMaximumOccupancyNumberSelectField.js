@@ -10,7 +10,12 @@ const CustomMaximumOccupancyNumberSelectField = props => {
   });
 
   return maximumOccupancyNumber ? (
-    <FieldSelect className={css.maximumOccupancyNumber} name={name} id={id} label={MaximumOccupancyNumberLabel}>
+    <FieldSelect
+      className={css.maximumOccupancyNumber}
+      name={name}
+      id={id}
+      label={MaximumOccupancyNumberLabel}
+    >
       {maximumOccupancyNumber.map(c => (
         <option key={c.key} value={c.key}>
           {c.label}

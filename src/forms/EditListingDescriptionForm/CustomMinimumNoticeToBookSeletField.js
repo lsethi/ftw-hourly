@@ -10,7 +10,12 @@ const CustomMinimumNoticeToBookSelectField = props => {
   });
 
   return minimumNoticeToBook ? (
-    <FieldSelect className={css.minimumNoticeToBook} name={name} id={id} label={minimumNoticeToBookLabel}>
+    <FieldSelect
+      className={css.minimumNoticeToBook}
+      name={name}
+      id={id}
+      label={minimumNoticeToBookLabel}
+    >
       {minimumNoticeToBook.map(c => (
         <option key={c.key} value={c.key}>
           {c.label}

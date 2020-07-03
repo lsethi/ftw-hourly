@@ -377,7 +377,7 @@ export class ListingPageComponent extends Component {
 
     const aminitesOptions = findOptionsForSelectFilter('aminites', filterConfig);
     const certificateOptions = findOptionsForSelectFilter('certificate', filterConfig);
-    const venueTypeOptions = findOptionsForSelectFilter('venueType', filterConfig);  
+    const venueTypeOptions = findOptionsForSelectFilter('venueType', filterConfig);
     return (
       <Page
         title={schemaTitle}
@@ -451,14 +451,12 @@ export class ListingPageComponent extends Component {
                     onManageDisableScrolling={onManageDisableScrolling}
                     publicData={publicData}
                     views={this.state.viewCount}
-                   
                   />
                   <SectionMapMaybe
                     geolocation={geolocation}
                     publicData={publicData}
                     listingId={currentListing.id}
                   />
-                  
                 </div>
                 <BookingPanel
                   className={css.bookingPanel}

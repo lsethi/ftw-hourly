@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, func, array, string,object } from 'prop-types';
+import { bool, func, array, string, object } from 'prop-types';
 import { compose } from 'redux';
 import { Form as FinalForm } from 'react-final-form';
 import { intlShape, injectIntl, FormattedMessage } from '../../util/reactIntl';
@@ -9,7 +9,7 @@ import { LINE_ITEM_NIGHT, LINE_ITEM_DAY, propTypes } from '../../util/types';
 import * as validators from '../../util/validators';
 import { formatMoney } from '../../util/currency';
 import { types as sdkTypes } from '../../util/sdkLoader';
-import { Button, Form, FieldCurrencyInput,FieldCheckbox,FieldTextInput } from '../../components';
+import { Button, Form, FieldCurrencyInput, FieldCheckbox, FieldTextInput } from '../../components';
 import css from './EditListingPricingForm.css';
 import DiscountsSection from './DiscountsSection';
 const { Money } = sdkTypes;
@@ -99,7 +99,7 @@ export const EditListingPricingFormComponent = props => (
             currencyConfig={config.currencyConfig}
             validate={priceValidators}
           />
-          <DiscountsSection/>
+          <DiscountsSection />
           <Button
             className={css.submitButton}
             type="submit"

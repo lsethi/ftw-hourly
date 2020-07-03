@@ -9,8 +9,9 @@ const SectionVenueTypeMaybe = props => {
   const { className, rootClassName, publicData, venueTypeConfig } = props;
   const classes = classNames(rootClassName || css.rootvenueTypes, className);
   const venueTypes = publicData.venueType || [];
-  console.log('venueTypeConfig'+venueTypeConfig);
-  const venueTypesWithLabels = venueTypes.filter(st => venueTypeConfig.find(c => c.key === st))
+  
+  const venueTypesWithLabels = venueTypes
+    .filter(st => venueTypeConfig.find(c => c.key === st))
     .map(st => {
       const configObject = venueTypeConfig.find(c => c.key === st);
       return configObject && configObject.label ? configObject.label : st;

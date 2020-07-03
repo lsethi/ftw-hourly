@@ -32,5 +32,3 @@ SectionOtherSuppliesMaybe.propTypes = {
 };
 
 export default SectionOtherSuppliesMaybe;
-
-

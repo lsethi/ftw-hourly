@@ -5,11 +5,11 @@ import { compose } from 'redux';
 import config from '../../config';
 import { Form as FinalForm } from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
-import { intlShape, injectIntl,  FormattedMessage } from '../../util/reactIntl';
+import { intlShape, injectIntl, FormattedMessage } from '../../util/reactIntl';
 //import { findOptionsForSelectFilter } from '../../util/search';
 //import config from '../../config';
 import { propTypes } from '../../util/types';
-import { Button,FieldTextInput,FieldCheckboxGroup, Form } from '../../components';
+import { Button, FieldTextInput, FieldCheckboxGroup, Form } from '../../components';
 
 import css from './EditListingFeaturesForm.css';
 
@@ -51,7 +51,7 @@ const EditListingFeaturesFormComponent = props => (
           <FormattedMessage id="EditListingFeaturesForm.showListingFailed" />
         </p>
       ) : null;
-      
+
       const amenitiesMessage = intl.formatMessage({
         id: 'EditListingFeaturesForm.amenities',
       });
@@ -61,7 +61,7 @@ const EditListingFeaturesFormComponent = props => (
       const suppliesMessage = intl.formatMessage({
         id: 'EditListingFeaturesForm.supplies',
       });
-      
+
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessage}
@@ -108,7 +108,6 @@ EditListingFeaturesFormComponent.defaultProps = {
   rootClassName: null,
   className: null,
   fetchErrors: null,
- 
 };
 
 EditListingFeaturesFormComponent.propTypes = {
@@ -126,7 +125,6 @@ EditListingFeaturesFormComponent.propTypes = {
     showListingsError: propTypes.error,
     updateListingError: propTypes.error,
   }),
-  
 };
 
 //const EditListingFeaturesForm = EditListingFeaturesFormComponent;

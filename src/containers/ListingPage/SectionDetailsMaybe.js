@@ -31,15 +31,11 @@ const SectionDetailsMaybe = props => {
     </span>
   );
 
-  const defaultMessageStudioText = (
-    <span className={css.messagStudio}>Message venue for more</span>
-  );
+  const defaultMessageStudioText = <span className={css.messagStudio}>Message venue for more</span>;
 
   const dayRateDiscountText =
     publicData && publicData.dayRateDiscount
-      ? `${publicData.dayRateDiscount.discountPerecent}% off for ${
-          publicData.dayRateDiscount.hoursForDiscount
-        }+ hours`
+      ? `${publicData.dayRateDiscount.discountPerecent}% off for ${publicData.dayRateDiscount.hoursForDiscount}+ hours`
       : defaultMessageStudioText;
 
   let minBookingText =

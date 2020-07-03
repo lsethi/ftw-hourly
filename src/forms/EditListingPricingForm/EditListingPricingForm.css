@@ -37,11 +37,11 @@
   font-weight: 500;
   padding-top: 20px;
 }
-.pricingCheckBox{
+.pricingCheckBox {
   width: 30px;
   display: inline-block;
 }
-.discountInput{
+.discountInput {
   width: 60px;
   display: inline-block;
 }

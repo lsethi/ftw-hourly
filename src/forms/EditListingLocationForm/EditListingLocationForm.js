@@ -14,7 +14,7 @@ import {
 import { Form, LocationAutocompleteInputField, Button, FieldTextInput } from '../../components';
 
 import css from './EditListingLocationForm.css';
-import GoogleLocationSelector from './GoogleLocactionSelector'
+import GoogleLocationSelector from './GoogleLocactionSelector';
 const identity = v => v;
 
 export const EditListingLocationFormComponent = props => (
@@ -37,7 +37,9 @@ export const EditListingLocationFormComponent = props => (
       } = formRenderProps;
 
       const titleRequiredMessage = intl.formatMessage({ id: 'EditListingLocationForm.address' });
-      const buildingRequiredMessage = intl.formatMessage({ id: 'EditListingLocationForm.buildingRequiredMessage' });
+      const buildingRequiredMessage = intl.formatMessage({
+        id: 'EditListingLocationForm.buildingRequiredMessage',
+      });
       const addressPlaceholderMessage = intl.formatMessage({
         id: 'EditListingLocationForm.addressPlaceholder',
       });
@@ -77,7 +79,7 @@ export const EditListingLocationFormComponent = props => (
       const submitReady = (updated && pristine) || ready;
       const submitInProgress = updateInProgress;
       const submitDisabled = invalid || disabled || submitInProgress;
-       
+
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           {errorMessage}
@@ -110,7 +112,7 @@ export const EditListingLocationFormComponent = props => (
             placeholder={buildingPlaceholderMessage}
             validate={required(buildingRequiredMessage)}
           />
-          
+
           <Button
             className={css.submitButton}
             type="submit"

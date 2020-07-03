@@ -5,7 +5,7 @@ import css from './EditListingDescriptionForm.css';
 
 const CustomSpecificHourHourStartSelectField = props => {
   const { name, id, hourStart } = props;
-  
+
   return hourStart ? (
     <FieldSelect className={css.hourStart} name={name} id={id}>
       {hourStart.map(c => (

@@ -32,4 +32,3 @@ SectionVenueHoursMaybe.propTypes = {
 };
 
 export default SectionVenueHoursMaybe;
-

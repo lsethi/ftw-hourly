@@ -3,7 +3,7 @@ import { FieldSelect } from '../../components';
 
 import css from './EditListingDescriptionForm.css';
 
-const CustomAvailabilityRadioGroup= props => {
+const CustomAvailabilityRadioGroup = props => {
   const { name, id, availability, intl } = props;
   const categoryLabel = intl.formatMessage({
     id: 'EditListingDescriptionForm.availabilityLabel',

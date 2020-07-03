@@ -18,15 +18,13 @@ const SectionHeading = props => {
     showContactUser,
     onContactUser,
   } = props;
-  
+
   const certificate = getCertificateInfo(certificateOptions, listingCertificate);
   const showCertificate = certificate && !certificate.hideFromListingInfo;
-  console.log('venueTypeOptions1',venueTypeOptions);
   return (
     <div className={css.sectionHeading}>
       <div className={css.heading}>
-      <SectionVenueTypeMaybe publicData={publicData}
-      venueTypeConfig={venueTypeOptions} />
+        <SectionVenueTypeMaybe publicData={publicData} venueTypeConfig={venueTypeOptions} />
         <h1 className={css.title}>{richTitle}</h1>
         <div className={css.author}>
           {showCertificate ? <span>{certificate.label}</span> : null}

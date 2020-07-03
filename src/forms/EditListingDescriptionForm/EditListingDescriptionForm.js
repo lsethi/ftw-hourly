@@ -8,7 +8,13 @@ import classNames from 'classnames';
 import { propTypes } from '../../util/types';
 import config from '../../config';
 import { maxLength, required, composeValidators } from '../../util/validators';
-import { Form, Button,FieldCheckboxGroup,FieldRadioButton,FieldTextInput } from '../../components';
+import {
+  Form,
+  Button,
+  FieldCheckboxGroup,
+  FieldRadioButton,
+  FieldTextInput,
+} from '../../components';
 
 //import CustomCertificateSelectFieldMaybe from './CustomCertificateSelectFieldMaybe';
 import CustomSpecificHourHourStartSelectField from './CustomSpecificHourHourStartSelectField';
@@ -68,19 +74,19 @@ const EditListingDescriptionFormComponent = props => (
         id: 'EditListingDescriptionForm.descriptionRequired',
       });
       const venueTypeLabelMessage = intl.formatMessage({
-        id :'EditListingDescriptionForm.venueTypeLabel',
+        id: 'EditListingDescriptionForm.venueTypeLabel',
       });
       const venueHoursMessage = intl.formatMessage({
-        id :'EditListingDescriptionForm.venueHoursLabel',
+        id: 'EditListingDescriptionForm.venueHoursLabel',
       });
       const alwaysAvailableLabel = intl.formatMessage({
-        id :'EditListingDescriptionForm.alwaysAvailableLabel',
+        id: 'EditListingDescriptionForm.alwaysAvailableLabel',
       });
       const messageForAvailabilityLabel = intl.formatMessage({
-        id :'EditListingDescriptionForm.messageForAvailabilityLabel',
+        id: 'EditListingDescriptionForm.messageForAvailabilityLabel',
       });
       const specificHoursLabel = intl.formatMessage({
-        id :'EditListingDescriptionForm.specificHoursLabel',
+        id: 'EditListingDescriptionForm.specificHoursLabel',
       });
 
       const { updateListingError, createListingDraftError, showListingsError } = fetchErrors || {};
@@ -141,7 +147,7 @@ const EditListingDescriptionFormComponent = props => (
             label={venueTypeLabelMessage}
             options={config.custom.VenueType}
           />
-          <div className={css.selectsRow} >
+          <div className={css.selectsRow}>
             <div className={css.selectsSplit}>
               <CustomMinimumBookingSelectField
                 id="minimumBooking"
@@ -203,14 +209,13 @@ const EditListingDescriptionFormComponent = props => (
             </div>
           </div> */}
 
-
           <CustomMinimumNoticeToBookSelectField
             id="minimumNoticeToBook"
             name="minimumNoticeToBook"
             minimumNoticeToBook={minimumNoticeToBook}
             intl={intl}
           />
-          
+
           <Button
             className={css.submitButton}
             type="submit"
@@ -267,7 +272,6 @@ EditListingDescriptionFormComponent.propTypes = {
       label: string.isRequired,
     })
   ),
-  
 };
 
 export default compose(injectIntl)(EditListingDescriptionFormComponent);

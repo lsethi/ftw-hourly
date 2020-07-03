@@ -12,7 +12,7 @@ const SectionFeaturesMaybe = props => {
 
   const selectedOptions = publicData && publicData.amenities ? publicData.amenities : [];
   const selectedConfigOptions = options.filter(o => selectedOptions.find(s => s === o.key));
-  
+
   return (
     <div className={css.sectionFeatures}>
       <h2 className={css.featuresTitle}>
