@@ -31,7 +31,7 @@ class SectionMapMaybe extends Component {
       ? { obfuscatedCenter: obfuscatedCoordinates(geolocation, cacheKey) }
       : { address, center: geolocation };
     const map = <Map {...mapProps} useStaticMap={this.state.isStatic} />;
-
+    console.log(geolocation);
     return (
       <div className={classes}>
         <h2 className={css.locationTitle}>

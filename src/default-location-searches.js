@@ -9,52 +9,62 @@ const { LatLng, LatLngBounds } = sdkTypes;
 // `predictionPlace` (util.types.place) properties.
 export default [
   {
-    id: 'default-new-york',
+    id: 'default-addis-ababa',
     predictionPlace: {
-      address: 'New York City, New York, USA',
+      address: 'Addis Ababa, Ethiopia',
       bounds: new LatLngBounds(
-        new LatLng(40.917576401307, -73.7008392055224),
-        new LatLng(40.477399, -74.2590879797556)
+        new LatLng(9.15688978,38.87226187),
+        new LatLng(8.86191616,38.62863248)
       ),
     },
   },
   {
-    id: 'default-los-angeles',
+    id: 'default-adama',
     predictionPlace: {
-      address: 'Los Angeles, California, USA',
+      address: 'Adama, Ethiopia',
       bounds: new LatLngBounds(
-        new LatLng(34.161440999758, -118.121305008073),
-        new LatLng(33.9018913203336, -118.521456965901)
+        new LatLng(8.57098744,39.30133859),
+        new LatLng(8.50153858,39.24405138)
       ),
     },
   },
   {
-    id: 'default-san-francisco',
+    id: 'default-bahir-dhar',
     predictionPlace: {
-      address: 'San Francisco, California, USA',
+      address: 'Bahir Dhar, Ethiopia',
       bounds: new LatLngBounds(
-        new LatLng(37.8324430069081, -122.354995082683),
-        new LatLng(37.6044780500533, -122.517910874663)
+        new LatLng(11.62130469,37.4180528),
+        new LatLng(11.54850682,37.35743334)
       ),
     },
   },
   {
-    id: 'default-seattle',
+    id: 'default-harar',
     predictionPlace: {
-      address: 'Seattle, Washington, USA',
+      address: 'Harar, Ethiopia',
       bounds: new LatLngBounds(
-        new LatLng(47.7779392908564, -122.216605992108),
-        new LatLng(47.3403950185547, -122.441233019046)
+        new LatLng(9.33170695, 42.14196836),
+        new LatLng(9.29504052, 42.11165834)
       ),
     },
   },
   {
-    id: 'default-portland',
+    id: 'default-gondar',
     predictionPlace: {
-      address: 'Portland, Oregon, USA',
+      address: 'Gondar, Ethiopia',
       bounds: new LatLngBounds(
-        new LatLng(45.858099013046, -122.441059986416),
-        new LatLng(45.3794799927623, -122.929215816001)
+        new LatLng(12.62825053, 37.48203309),
+        new LatLng(12.59199092, 37.45172336)
+      ),
+    },
+  },
+  {
+    id: 'default-jimma',
+    predictionPlace: {
+      address: 'Jimma, Ethiopia',
+      bounds: new LatLngBounds(
+        new LatLng(7.69517884, 36.85916678),
+        new LatLng(7.649444, 36.82166678)
       ),
     },
   },
